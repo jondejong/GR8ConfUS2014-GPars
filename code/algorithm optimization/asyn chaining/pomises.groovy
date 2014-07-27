@@ -13,7 +13,7 @@ def longProcess(values) {
 
 def longProcessDoneHandler = {vals->
     done = true
-    println '\n\nProcess is done with: '
+    print '\n\nProcess is done with: '
     vals.each{print " ${it}"}
 }
 
