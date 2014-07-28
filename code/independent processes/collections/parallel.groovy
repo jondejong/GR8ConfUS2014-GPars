@@ -18,6 +18,7 @@ def messages
 println "Running in parallel"
 GParsPool.withPool(4) {
     messages = sleepers.collectParallel {
+        println "Starting to run for ${it.seconds}"
         it.sleep()
     }
 }

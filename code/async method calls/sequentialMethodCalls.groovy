@@ -18,7 +18,7 @@ def quickProcessLoop(values) {
 }
 
 println "Long process: "
-def finalLongLoopValues = reallyLongProcessLoop(1..25)
-println "Quick process: "
-def finalQuickLoopValues = quickProcessLoop(26..50)
-println "Those are done. We can do something else now"
+reallyLongProcessLoop(1..25)
+println "\nQuick process: "
+quickProcessLoop(26..50)
+println "\nThose are done. We can do something else now"
