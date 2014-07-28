@@ -35,7 +35,6 @@ class SharedMutableState {
 
     def update(Person person) {
         println "State is updating person: ${person.firstName} ${person.lastName}."
-//        save(person)
         people[person.id] = person
     }
 

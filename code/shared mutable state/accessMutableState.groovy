@@ -1,4 +1,6 @@
+import groovyx.gpars.GParsPool
 import groovyx.gpars.agent.Agent
+import groovyx.gpars.group.DefaultPGroup
 
 def sms = new SharedMutableState()
 def smsAgent = new Agent(sms)
@@ -45,7 +47,9 @@ def deletePerson(agent) {
 def firstNames = ['Sookie', 'Bill', 'Eric', 'Sam', 'Tara', 'Lafayette']
 def lastNames = ['Stackhouse', 'Compton', 'Northman', 'Merlotte', 'Thornton', 'Reynolds']
 
-while (true) {
+def group = new DefaultPGroup();
+
+(0..25).each{
     def switchVal = new Random().nextInt(3)
 
     switch (switchVal) {
@@ -61,7 +65,5 @@ while (true) {
             deletePerson(smsAgent)
 
     }
-
     sleep 500
-
 }
