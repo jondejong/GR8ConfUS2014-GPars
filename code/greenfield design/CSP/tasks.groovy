@@ -1,6 +1,6 @@
 import groovyx.gpars.dataflow.DataflowQueue
-
 import static groovyx.gpars.dataflow.Dataflow.task
+
 def words = ['Groovy', 'fantastic', 'concurrency', 'fun', 'enjoy', 'safe', 'GPars', 'data', 'flow']
 final def buffer = new DataflowQueue()
 
