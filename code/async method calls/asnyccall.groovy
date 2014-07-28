@@ -2,7 +2,6 @@ import groovyx.gpars.GParsPool
 
 import java.util.concurrent.Future
 
-
 GParsPool.withPool {
     println "Calling async function"
     Future longVal = {
@@ -11,6 +10,11 @@ GParsPool.withPool {
             it * 2
         }
     }.callAsync()
-    println 'Async function called. Blocking on get call'
+
+    print '\nAsync function called. Blocking on get call'
+//    while(!longVal.isDone()) {
+//        print "."
+//        sleep 500
+//    }
     println "val: ${longVal.get()}"
 }
