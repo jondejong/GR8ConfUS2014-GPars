@@ -1,18 +1,18 @@
-import groovyx.gpars.GParsPool
 import groovyx.gpars.agent.Agent
 import groovyx.gpars.group.DefaultPGroup
 
 def sms = new SharedMutableState()
-def smsAgent = new Agent(sms)
 
 // Put three in state to start
 sms.save(new Person(firstName: 'Jon', lastName: 'DeJong', age: '34'))
 sms.save(new Person(firstName: 'Megan', lastName: 'Jensen', age: '23'))
 sms.save(new Person(firstName: 'Jimmy', lastName: 'Jameson', age: '42'))
 
-def addNewPeople(agent, firstNames, lastNames) {
+def smsAgent = new Agent(sms)
+
+def addNewPerson(agent, firstNames, lastNames) {
     agent << { state ->
-        // Done all your process before saving...
+        // Do all your processing before saving...
         sleep 500
         state.save(new Person(
                 firstName: firstNames[new Random().nextInt(firstNames.size)],
@@ -47,14 +47,12 @@ def deletePerson(agent) {
 def firstNames = ['Sookie', 'Bill', 'Eric', 'Sam', 'Tara', 'Lafayette']
 def lastNames = ['Stackhouse', 'Compton', 'Northman', 'Merlotte', 'Thornton', 'Reynolds']
 
-def group = new DefaultPGroup();
-
 (0..25).each{
     def switchVal = new Random().nextInt(3)
 
     switch (switchVal) {
         case 0:
-            addNewPeople(smsAgent, firstNames, lastNames)
+            addNewPerson(smsAgent, firstNames, lastNames)
             break
 
         case 1:

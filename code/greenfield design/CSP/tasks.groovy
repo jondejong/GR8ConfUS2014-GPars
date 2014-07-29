@@ -1,3 +1,6 @@
+/**
+ * From GPars docs
+ */
 import groovyx.gpars.dataflow.DataflowQueue
 import static groovyx.gpars.dataflow.Dataflow.task
 

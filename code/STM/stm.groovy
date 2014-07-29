@@ -1,3 +1,6 @@
+/*
+Modified from GPars docs
+ */
 import groovyx.gpars.stm.GParsStm
 import org.multiverse.api.references.TxnInteger
 import static org.multiverse.api.StmUtils.newTxnInteger
